@@ -3,7 +3,7 @@ import json
 
 def get_info_from_json():
     """
-    Получает данные из json файла
+    Получает данные из json-файла
     :return:
     """
     with open('data/products.json', encoding='UTF-8') as data:
