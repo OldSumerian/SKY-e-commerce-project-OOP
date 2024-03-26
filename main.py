@@ -1,16 +1,34 @@
-# This is a sample Python script.
+# Подключение функции чтения данных из json-файла
+from src.utils import get_info_from_json
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# Подключение классов
+from classes.class_Category import Category
+from classes.class_Product import Product
 
 
-# Press the green button in the gutter to run the script.
+def main():
+    """
+    Функция, содержащая основной код программы
+    """
+
+    # Создание переменной, содержащей данные, полученные из json-файла
+    base = get_info_from_json()
+
+    # Создание списка, содержащего экземпляры класса 'Category' по данным, полученным из json-файла
+    categories = [Category(item['name'], item['description'], item['products']) for item in base]
+
+    # Создание списка, содержащего экземпляры класса 'Product' по данным, полученным из json-файла
+    products = [[Product(product['name'], product['description'], product['price'], product['quantity'])
+                 for product in category.products] for category in categories]
+
+    # def display():
+    #     print(categories)
+    #     print(products)
+    #     print(Category.count_of_all_categories)
+    #     print(Category.set_of_all_unique_products)
+    #     print(Category.count_of_all_unique_products)
+    #
+    # display()
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    main()
