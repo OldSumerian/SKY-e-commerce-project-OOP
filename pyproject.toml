@@ -10,6 +10,11 @@ packages = [{include = "sky_oop_e_shop_project"}]
 python = "^3.10"
 
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.1.1"
+pytest-cov = "^4.1.0"
+
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

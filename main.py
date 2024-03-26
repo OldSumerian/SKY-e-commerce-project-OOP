@@ -21,6 +21,14 @@ def main():
     products = [[Product(product['name'], product['description'], product['price'], product['quantity'])
                  for product in category.products] for category in categories]
 
+    # def display():
+    #     print(categories)
+    #     print(products)
+    #     print(Category.count_of_all_categories)
+    #     print(Category.set_of_all_unique_products)
+    #     print(Category.count_of_all_unique_products)
+    #
+    # display()
 
 if __name__ == '__main__':
     main()
