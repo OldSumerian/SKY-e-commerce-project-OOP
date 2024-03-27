@@ -9,6 +9,6 @@ def test_init_object_category(data_for_test):
     assert len(categories[0].products) == 3
     assert len(categories[1].products) == 1
     assert len(categories) == 2
-    assert classes.class_Category.Category.count_of_all_categories == 9
-    assert len(classes.class_Category.Category.set_of_all_unique_products) == 4
+    assert classes.class_Category.Category.count_of_all_categories == 2
+    assert classes.class_Category.Category.count_of_unique_products == 4
 
