@@ -25,12 +25,21 @@ class Category:
 
     @property
     def display_products(self):
+        list_of_products = ""
         for i in self.__products:
-            print(f"{i['name']}, {i['price']} руб. Остаток: {i['quantity']} шт.")
-        return self.__products
+            list_of_products += f"{i['name']}, {i['price']} руб. Остаток: {i['quantity']} шт.\n"
+        return list_of_products
+
+
 
     def __repr__(self):
-        return f'Category({self.name}, {self.description}, {self.products})'
+        return f'{self.__class__.__name__}({self.name}, {self.description}, {self.products})'
 
     def __str__(self):
-        return f'Класс "Category". Обязательные атрибуты name(str), description(str), products(list)'
+        return f'{self.name}, количество продуктов: {len(self)} шт.'
+
+    def __add__(self):
+        pass
+
+    def __len__(self):
+        return len(self.__products)

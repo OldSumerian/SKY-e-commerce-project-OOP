@@ -31,7 +31,12 @@ class Product:
             self.__price = price
 
     def __repr__(self):
-        return f'Product({self.name}, {self.description}, {self.price}, {self.quantity})'
+        return f'{self.__class__.__name__}({self.name}, {self.description}, {self.price}, {self.quantity})'
 
     def __str__(self):
-        return f'Класс "Product". Обязательные атрибуты: name(str), description(str), price(float), quantity(int)'
+        return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.'
+    def __len__(self):
+        return len(self.description)
+
+    def __add__(self, other):
+        return self.__price * self.quantity + other.price * other.quantity
