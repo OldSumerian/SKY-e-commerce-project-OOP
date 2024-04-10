@@ -1,3 +1,5 @@
+import classes.class_Product
+
 class Category:
     name: str
     description: str
@@ -10,18 +12,23 @@ class Category:
         self.description = description
         self.__products = products
 
-        set_of_this_category_unique_products = set([item['name'] for item in self.__products])
+        # set_of_this_category_unique_products = set([item['name'] for item in self.__products])
 
-        Category.count_of_all_categories += 1
-        Category.count_of_unique_products += len(set_of_this_category_unique_products)
+        classes.class_Category.Category.count_of_all_categories += 1
+        # classes.class_Category.Category.count_of_unique_products += len(set_of_this_category_unique_products)
 
-    @classmethod
-    def add_product(cls, product):
-        cls.__products.append(product)
+    # @classmethod
+    # def add_product(cls, product):
+    #     cls.__products.append(product)
 
     @property
     def products(self):
         return self.__products
+
+    @products.setter
+    def products(self, product):
+        if isinstance(product, type(classes.class_Product)):
+            self.__products.append(product)
 
     @property
     def display_products(self):
