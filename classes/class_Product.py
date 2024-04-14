@@ -1,4 +1,8 @@
-class Product:
+import classes.abs_Base_Product
+import classes.MixinInfo
+
+
+class Product(classes.abs_Base_Product.BaseProduct, classes.MixinInfo.MixinInfo):
     name: str
     description: str
     __price: float
@@ -11,12 +15,15 @@ class Product:
         self.__price = price
         self.quantity = quantity
         self.color = color
+        super().__init__(self.__dict__.values())
+
+    def about_product(self):
+        return self.description
 
     @classmethod
     def make_product(cls, product):
         name, description, price, quantity = product.split()
         return cls(name, description, price, quantity)
-
 
     @property
     def price(self):
@@ -33,15 +40,16 @@ class Product:
         else:
             self.__price = price
 
-
-
     def __repr__(self):
-        return f'{self.__class__.__name__}({self.name}, {self.description}, {self.price}, {self.quantity})'
+        return f'{self.__class__.__name__}({self.name}, {self.description}, {self.__price}, {self.quantity})'
 
     def __str__(self):
         return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.'
+
     def __len__(self):
         return len(self.description)
 
     def __add__(self, other):
-        return self.__price * self.quantity + other.price * other.quantity
+        if not isinstance(other, type(self)):
+            raise TypeError('Add only one-typed objects')
+        return self.quantity + other.quantity
