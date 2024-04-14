@@ -27,8 +27,10 @@ class Category:
 
     @products.setter
     def products(self, product):
-        if isinstance(product, type(classes.class_Product)):
-            self.__products.append(product)
+        if not isinstance(product, classes.class_Product.Product):
+            raise TypeError('You must added only one-typed products')
+        self.products.append(product)
+
 
     @property
     def display_products(self):
@@ -46,6 +48,7 @@ class Category:
         return f'{self.name}, количество продуктов: {len(self)} шт.'
 
     def __add__(self):
+
         pass
 
     def __len__(self):

@@ -15,6 +15,6 @@ class Grass(classes.class_Product.Product):
             return self.quantity + other.quantity
         raise TypeError('Add only one-typed objects')
 
-    def __repr__(self):
-        return (f'{self.__class__.__name__}({self.name}, {self.description}, {self.price}, '
-                f'{self.quantity}, {self.color}, {self.made_by_country}, {self.germination_period})')
+    # def __repr__(self):
+    #     return (f'{self.__class__.__name__}({self.name}, {self.description}, {self.price}, '
+    #             f'{self.quantity}, {self.color}, {self.made_by_country}, {self.germination_period})')

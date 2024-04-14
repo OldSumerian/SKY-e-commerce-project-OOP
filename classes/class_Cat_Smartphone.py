@@ -17,6 +17,6 @@ class Smartphone(classes.class_Product.Product):
             raise TypeError('Add only one-typed objects')
         return self.quantity + other.quantity
 
-    def __repr__(self):
-        return (f'{self.__class__.__name__}({self.name}, {self.description}, {self.price}, '
-                f'{self.quantity}, {self.color}, {self.power}, {self.model}, {self.memory})')
+    # def __repr__(self):
+    #     return (f'{self.__class__.__name__}({self.name}, {self.description}, {self.price}, '
+    #             f'{self.quantity}, {self.color}, {self.power}, {self.model}, {self.memory})')
