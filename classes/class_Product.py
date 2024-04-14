@@ -3,17 +3,20 @@ class Product:
     description: str
     __price: float
     quantity: int
+    color: None
 
-    def __init__(self, name, description, price, quantity):
+    def __init__(self, name, description, price, quantity, color=None):
         self.name = name
         self.description = description
         self.__price = price
         self.quantity = quantity
+        self.color = color
 
     @classmethod
     def make_product(cls, product):
         name, description, price, quantity = product.split()
         return cls(name, description, price, quantity)
+
 
     @property
     def price(self):
@@ -29,6 +32,8 @@ class Product:
                 self.__price = price
         else:
             self.__price = price
+
+
 
     def __repr__(self):
         return f'{self.__class__.__name__}({self.name}, {self.description}, {self.price}, {self.quantity})'
