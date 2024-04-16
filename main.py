@@ -79,24 +79,24 @@ def main():
     print()
 
     # Создание категории
-    smart_category = classes.class_Category.Category('Smartphones', 'Many good smarts', [any_smart])
-    print(smart_category)
-    print(smart_category.products)
-    print(repr(smart_category))
+    # smart_category = classes.class_Category.Category('Smartphones', 'Many good smarts', [any_smart])
+    # print(smart_category)
+    # print(smart_category.products)
+    # print(repr(smart_category))
     # Добавление продукта в категорию
-    smart_category.products = second_smart
-    print(smart_category)
-    print(repr(smart_category))
-    print()
+    # smart_category.products = second_smart
+    # print(smart_category)
+    # print(repr(smart_category))
+    # print()
 
     print(f'Реализация сложения однотипных продуктов: {any_smart + second_smart}')
-    print(any_smart + any_product)  # Вызовется ошибка при складывании разных классов-наследников
+    print(any_smart + any_product)  # Вызовется ошибка при складывании класса наследника и родителя
     print()
-
+    print(any_smart + any_grass) # Вызовется ошибка при складывании разных классов-наследников
     # Это проверки по ДЗ 15.2
     # Реализация метода предусмотренного в абстрактном базовом классе
-    print(any_smart.about_product())
-    print(any_smart.__dict__.values())
+    # print(any_smart.about_product())
+    # print(any_smart.__dict__.values())
     # Работа мискина видна по выводу при каждом создании экземпляра класса
 
 if __name__ == '__main__':
