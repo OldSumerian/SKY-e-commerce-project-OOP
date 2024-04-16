@@ -50,6 +50,7 @@ class Product(classes.abs_Base_Product.BaseProduct, classes.MixinInfo.MixinInfo)
         return len(self.description)
 
     def __add__(self, other):
-        if not isinstance(other, type(self)):
-            raise TypeError('Add only one-typed objects')
-        return self.quantity + other.quantity
+        if isinstance(other, type(self)):
+            return self.quantity + other.quantity
+        raise TypeError('Add only one-typed objects')
+
