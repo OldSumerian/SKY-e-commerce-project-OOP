@@ -53,22 +53,22 @@ def main():
     any_smart = classes.class_Cat_Smartphone.Smartphone('ExampleSmart', 'Powerful smart',
                                                         100000, 5, 'black', 3000,
                                                         'S22 Ultra', '512 Gb')
-    print(any_smart)
-    print(repr(any_smart))
-    print()
+    # print(any_smart)
+    # print(repr(any_smart))
+    # print()
 
     # Создание экземпляра другого класса-наследника
     any_grass = classes.class_Cat_Grass.Grass('SomeGrass', 'Very good grass', 5000,
                                               6, 'green', 'Russia', 2)
-    print(any_grass)
-    print(repr(any_grass))
-    print()
+    # print(any_grass)
+    # print(repr(any_grass))
+    # print()
 
     # Создание экземпляра класса-родителя
     any_product = classes.class_Product.Product('MyTV', 'Must Have!', 70000, 1, 'white')
-    print(any_product)
-    print(repr(any_product))
-    print()
+    # print(any_product)
+    # print(repr(any_product))
+    # print()
 
     # Создание еще одного экземпляра класса-наследника (для проверки методов)
     second_smart = classes.class_Cat_Smartphone.Smartphone('AnotherSmart', 'New Powerful smart',
@@ -79,15 +79,15 @@ def main():
     print()
 
     # Создание категории
-    # smart_category = classes.class_Category.Category('Smartphones', 'Many good smarts', [any_smart])
+    smart_category = classes.class_Category.Category('Smartphones', 'Many good smarts', [any_smart])
     # print(smart_category)
     # print(smart_category.products)
     # print(repr(smart_category))
     # Добавление продукта в категорию
-    # smart_category.products = second_smart
+    smart_category.products = second_smart
     # print(smart_category)
-    # print(repr(smart_category))
-    # print()
+    print(repr(smart_category))
+    print()
 
     print(f'Реализация сложения однотипных продуктов: {any_smart + second_smart}')
     # print(any_smart + any_product)  # Вызовется ошибка при складывании класса наследника и родителя
@@ -99,6 +99,20 @@ def main():
     # print(any_smart.__dict__.values())
     # Работа мискина видна по выводу при каждом создании экземпляра класса
 
+    # Проверка ДЗ №15.3 (Исключения)
+    # Получение средней стоимости продуктов в категории
+    av_cost = smart_category.get_average_cost()
+    print(av_cost)
+
+    # вызов исключения если категория пустая (выводит 0)
+    smart_category2 = classes.class_Category.Category('Prototype', 'Empty Category', [])
+    av_cost2 = smart_category2.get_average_cost()
+    print(av_cost2)
+
+    # Создание продукта с нулевым количеством вызовет ошибку ValueError
+    third_smart = classes.class_Cat_Smartphone.Smartphone('OneMoreAnotherSmart', 'New Powerful smart',
+                                                          150000, 0, 'black', 3000,
+                                                          'S24 Ultra', '512 Gb')
 
 if __name__ == '__main__':
     main()

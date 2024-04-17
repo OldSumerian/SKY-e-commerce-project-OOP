@@ -13,7 +13,10 @@ class Product(classes.abs_Base_Product.BaseProduct, classes.MixinInfo.MixinInfo)
         self.name = name
         self.description = description
         self.__price = price
-        self.quantity = quantity
+        if not quantity:
+            raise ValueError('Невозможно создать продукт с нулевым значением количества')
+        else:
+            self.quantity = quantity
         self.color = color
         super().__init__(self.__dict__.values())
 
