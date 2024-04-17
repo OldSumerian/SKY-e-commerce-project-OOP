@@ -1,5 +1,6 @@
 import classes.class_Product
 
+
 class Category:
     name: str
     description: str
@@ -31,15 +32,12 @@ class Category:
             raise TypeError('You must added only one-typed products')
         self.products.append(product)
 
-
     @property
     def display_products(self):
         list_of_products = ""
         for i in self.__products:
             list_of_products += f"{i['name']}, {i['price']} руб. Остаток: {i['quantity']} шт.\n"
         return list_of_products
-
-
 
     def __repr__(self):
         return f'{self.__class__.__name__}({self.name}, {self.description}, {self.products})'
@@ -48,7 +46,6 @@ class Category:
         return f'{self.name}, количество продуктов: {len(self)} шт.'
 
     def __add__(self):
-
         pass
 
     def __len__(self):

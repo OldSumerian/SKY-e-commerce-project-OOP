@@ -13,11 +13,6 @@ class Smartphone(classes.class_Product.Product):
         self.memory = memory
 
     def __add__(self, other):
-        if isinstance(other, type(self)):
-            return self.quantity + other.quantity
-        raise TypeError('Add only one-typed objects')
-
-
-    # def __repr__(self):
-    #     return (f'{self.__class__.__name__}({self.name}, {self.description}, {self.price}, '
-    #             f'{self.quantity}, {self.color}, {self.power}, {self.model}, {self.memory})')
+        if type(self) is not type(other):
+            raise TypeError('Add only one-typed objects')
+        return self.price * self.quantity + other.price * other.quantity
