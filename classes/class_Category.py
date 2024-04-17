@@ -39,6 +39,15 @@ class Category:
             list_of_products += f"{i['name']}, {i['price']} руб. Остаток: {i['quantity']} шт.\n"
         return list_of_products
 
+    def get_average_cost(self):
+        try:
+            cost = 0
+            for i in self.__products:
+                cost += i.price
+            return cost/len(self)
+        except ZeroDivisionError:
+            return 0
+
     def __repr__(self):
         return f'{self.__class__.__name__}({self.name}, {self.description}, {self.products})'
 
