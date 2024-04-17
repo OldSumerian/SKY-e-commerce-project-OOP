@@ -6,5 +6,3 @@ class BaseProduct(ABC):
     @abstractmethod
     def about_product(self):
         pass
-
-
