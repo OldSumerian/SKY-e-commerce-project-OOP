@@ -109,10 +109,21 @@ def main():
     av_cost2 = smart_category2.get_average_cost()
     print(av_cost2)
 
+    # Создание экземпляра класса продукт с отрицательным значением количества (для теста исключения в категории)
+    fourth_smart = classes.class_Cat_Smartphone.Smartphone('NegativeSmart', 'New Powerful smart',
+                                                          150000, -1, 'black', 3000,
+                                                          'S24 Ultra', '512 Gb')
+    print(fourth_smart)
+
+    # Проверка исключения на добавление в категорию продукта с нулевым или отрицательным значением количества
+    smart_category.products = fourth_smart
+    print(smart_category)
+
     # Создание продукта с нулевым количеством вызовет ошибку ValueError
     third_smart = classes.class_Cat_Smartphone.Smartphone('OneMoreAnotherSmart', 'New Powerful smart',
                                                           150000, 0, 'black', 3000,
                                                           'S24 Ultra', '512 Gb')
+
 
 if __name__ == '__main__':
     main()
