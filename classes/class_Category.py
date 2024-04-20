@@ -30,6 +30,8 @@ class Category:
     def products(self, product):
         if not isinstance(product, classes.class_Product.Product):
             raise TypeError('You must added only one-typed products')
+        if product.quantity <= 0:
+            raise ValueError('Product quantity is not correct (add product step)')
         self.products.append(product)
 
     @property
